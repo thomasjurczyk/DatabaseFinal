@@ -25,8 +25,8 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         array_push($resultArray,array("Username"=>$row["Username"],"TimeCreated"=>$row["TimeCreated"],"Note"=>$row["Note"]));
     }
-    $_SESSION["AllNotes"]=json_encode($resultArray);
-    echo $_SESSION["AllNotes"];
+    $_SESSION["AllNotes"]=$resultArray;
+    echo $_SESSION["AllNotes"][0]["Note"];
 }
 else
 {
