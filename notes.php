@@ -13,17 +13,4 @@ if ($conn->connect_error) {
     die("<p>Connection failed: " . $conn->connect_error . "</p>");
 }
 
-$unameInput=htmlspecialchars($_POST["uname"]);
-
-$sql = "SELECT * FROM LoginInfo WHERE Username=\"$unameInput\"";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-
-$_SESSION['uname'] = $unameInput;
-header("Location: http://thomasjurczyk.epizy.com/notes.php");
-}
-else
-{
-    header("Location: http://thomasjurczyk.epizy.com/login.html");
-}
 ?>
