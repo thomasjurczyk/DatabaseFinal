@@ -29,7 +29,11 @@ session_start();
 <div class="row">
 <div class="notesContainer">
 <div>
-<?php echo $_SESSION["rows"][2]; ?>
+
+
+<script>
+var i = '<%= Session["rows"] %>';
+</script>
 
 </div>
 
