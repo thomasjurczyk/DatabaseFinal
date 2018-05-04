@@ -11,8 +11,23 @@
         header("Location: http://thomasjurczyk.epizy.com/login.html");
     }
 
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    if (!$conn) {
+        die("<p>Connection failed: " . mysqli_connect_error() . "</p>");
+    }
+
     $uname=$_SESSION['uname'];
 
     $noteToAdd=$_POST['Note'];
-    echo $noteToAdd;
+
+    $sql="INSERT INTO Notes (Username,TimeCreated,Note) VALUES ('$uname',NOW(),'$noteToAdd')";
+    $result=mysqli_query($conn,$sql);
+    if(!$result)
+    {
+        echo "Well something went wrong";
+    }
+    else
+    {
+        header("Location: http://thomasjurczyk.epizy.com/notePage.php");
+    }
 ?>

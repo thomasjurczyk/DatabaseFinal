@@ -21,5 +21,6 @@
     }
     
     $sql="DELETE FROM Notes WHERE TimeCreated=\"$recordToDelete\"";
+    mysqli_query($conn,$sql);
     header("Location: http://thomasjurczyk.epizy.com/readNotes.php");
 ?>
