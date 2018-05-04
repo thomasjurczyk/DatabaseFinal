@@ -20,6 +20,7 @@
 
     $noteToAdd=$_POST['Note'];
 
+    $escapedNote=mysqli_real_escape_string($conn,$noteToAdd);
     $sql="INSERT INTO Notes (Username,TimeCreated,Note) VALUES ('$uname',NOW(),'$noteToAdd')";
     $result=mysqli_query($conn,$sql);
     if(!$result)
