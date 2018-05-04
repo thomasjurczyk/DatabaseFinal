@@ -4,10 +4,13 @@
         <title>Add Record</title>
     </head>
     <body>
-        <form action="processNewRecord.php" method="post">
-            <textarea required>
-                
-            </textarea>
-        </form>
+        <div>
+            <h1>Type New Note Here</h1>
+            <form action="processNewRecord.php" method="post">
+                <textarea required autofocus name="Note" maxlength="1000" style="width:500px;height:200px;"></textarea>
+                <br>
+                <input type="submit">
+            </form>
+        </div>
     </body>
 </html>
