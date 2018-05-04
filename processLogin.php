@@ -20,7 +20,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 
 $_SESSION['uname'] = $unameInput;
-header("Location: http://thomasjurczyk.epizy.com/notes.php");
+header("Location: http://thomasjurczyk.epizy.com/readNotes.php");
 }
 else
 {
