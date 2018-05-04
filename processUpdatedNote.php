@@ -12,6 +12,7 @@
 
     $updateDate=$_SESSION['updateDate'];
     $updatedNote=$_POST['Note'];
+    $_SESSION['updateDate']=null;
 
     if($updateDate==null||$updatedNote==null)
     {
