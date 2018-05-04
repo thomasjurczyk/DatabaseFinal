@@ -34,6 +34,6 @@
     }
     else
     {
-        header("Location: http://thomasjurczyk.epizy.com/notePage.php");
+        header("Location: http://thomasjurczyk.epizy.com/readNotes.php");
     }
 ?>

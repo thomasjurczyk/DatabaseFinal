@@ -6,6 +6,7 @@
 
 
     session_start();
+    echo $_SESSION['dateToDelete'];
     if($_SESSION['uname']==null||$_SESSION['dateToDelete']==null)
     {
         header("Location: http://thomasjurczyk.epizy.com/login.html");
@@ -21,6 +22,13 @@
     }
     
     $sql="DELETE FROM Notes WHERE TimeCreated=\"$recordToDelete\"";
-    mysqli_query($conn,$sql);
-    header("Location: http://thomasjurczyk.epizy.com/readNotes.php");
+    echo $sql;
+    if(!mysqli_query($conn,$sql))
+    {
+        echo "Well we messed that up";
+    }
+    else
+    {
+        header("Location: http://thomasjurczyk.epizy.com/readNotes.php");
+    }
 ?>
