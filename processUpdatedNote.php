@@ -23,7 +23,9 @@
     if (!$conn) {
         die("<p>Connection failed: " . mysqli_connect_error() . "</p>");
     }
-    $sql = "UPDATE Notes SET Note='$updatedNote' WHERE timeCreated=\"$updateDate\"";
+
+    $escapedNote=mysqli_real_escape_string($conn,$updatedNote);
+    $sql = "UPDATE Notes SET Note='$escapedNote' WHERE timeCreated=\"$updateDate\"";
 
     mysqli_query($conn,$sql);
     if(!mysqli_query($conn,$sql))
@@ -32,6 +34,6 @@
     }
     else
     {
-        header("Location: http://thomasjurczyk.epizy.com/notePage.php");
+        header("Location: http://thomasjurczyk.epizy.com/readNotes.php");
     }
 ?>
