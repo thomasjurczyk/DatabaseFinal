@@ -17,8 +17,11 @@ if($_SESSION['uname']==null)
 {
     header("Location: http://thomasjurczyk.epizy.com/login.html");
 }
+$_SESSION['holder'];
 
 $uname=$_SESSION['uname'];
+
+
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -38,8 +41,21 @@ if (mysqli_num_rows($result) > 0) {
 for ($x = 0; $x <= $row_cnt; $x++) {
     echo "<div class=\"container-fluid noteContainer\">";
     echo $_SESSION["AllNotes"][$x]["Note"];
+
+    $tempDate=$_SESSION["AllNotes"][$x]["TimeCreated"];
+
+    echo "<input class=\"button\" type=\"submit\" name=\"$tempDate\" value=\"DELETE\">";
+
     echo "</div>";
     echo "<div class=\"container-fluid timeContainer\">";
+    echo $_SESSION["AllNotes"][$x]["TimeCreated"][11];
+
+    echo $_SESSION["AllNotes"][$x]["TimeCreated"][12];
+    echo $_SESSION["AllNotes"][$x]["TimeCreated"][13];
+    echo $_SESSION["AllNotes"][$x]["TimeCreated"][14];
+    echo $_SESSION["AllNotes"][$x]["TimeCreated"][15];
+    echo $_SESSION["AllNotes"][$x]["TimeCreated"][10];
+    echo "<br>";
     echo $_SESSION["AllNotes"][$x]["TimeCreated"][0];
     echo $_SESSION["AllNotes"][$x]["TimeCreated"][1];
     echo $_SESSION["AllNotes"][$x]["TimeCreated"][2];
@@ -50,12 +66,8 @@ for ($x = 0; $x <= $row_cnt; $x++) {
     echo $_SESSION["AllNotes"][$x]["TimeCreated"][7];
     echo $_SESSION["AllNotes"][$x]["TimeCreated"][8];
     echo $_SESSION["AllNotes"][$x]["TimeCreated"][9];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][10];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][11];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][12];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][13];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][14];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][15];
+
+
     echo "</div>";
     echo "<br>";
     }
