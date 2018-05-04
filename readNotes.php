@@ -38,35 +38,20 @@ if (mysqli_num_rows($result) > 0) {
         array_push($resultArray,array("Username"=>$row["Username"],"TimeCreated"=>$row["TimeCreated"],"Note"=>$row["Note"]));
     }
     $_SESSION["AllNotes"]=$resultArray;
-for ($x = 0; $x <= $row_cnt; $x++) {
+    echo "<form action=\"addNote.html\" method=\"post\"><input class=\"button\" type=\"hidden\" name=\"key\"><input type=\"submit\" value=\"ADD\"></form>";
+for ($x = 0; $x <= $row_cnt - 1; $x++) {
     echo "<div class=\"container-fluid noteContainer\">";
     echo $_SESSION["AllNotes"][$x]["Note"];
 
     $tempDate=$_SESSION["AllNotes"][$x]["TimeCreated"];
 
-    echo "<input class=\"button\" type=\"submit\" name=\"$tempDate\" value=\"DELETE\">";
 
     echo "</div>";
     echo "<div class=\"container-fluid timeContainer\">";
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][11];
 
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][12];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][13];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][14];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][15];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][10];
-    echo "<br>";
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][0];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][1];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][2];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][3];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][4];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][5];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][6];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][7];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][8];
-    echo $_SESSION["AllNotes"][$x]["TimeCreated"][9];
+    echo "<form action=\"handleDelete.php\" method=\"post\"><input class=\"button\" type=\"hidden\" name=\"key\" value=\"$tempDate\"><input type=\"submit\" value=\"DELETE\"></form>";
 
+        echo "<form action=\"handleUpdate.php\" method=\"post\"><input class=\"button\" type=\"hidden\" name=\"key\" value=\"$tempDate\"><input type=\"submit\" value=\"UPDATE\"></form>";
 
     echo "</div>";
     echo "<br>";
@@ -76,7 +61,9 @@ for ($x = 0; $x <= $row_cnt; $x++) {
 {
     $_SESSION['notes']=null;
     echo "<p>No notes</p>";
+            echo "<form action=\"addNote.html\" method=\"post\"><input class=\"button\" type=\"hidden\" name=\"key\"><input type=\"submit\" value=\"ADD\"></form>";
 }
+
 
 
 
