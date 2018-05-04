@@ -11,8 +11,9 @@
     }
 
     $updateDate=$_SESSION['updateDate'];
+    $updatedNote=$_POST['Note'];
 
-    if($updateDate==null)
+    if($updateDate==null||$updatedNote==null)
     {
         header("Location: http://thomasjurczyk.epizy.com/notePage.php");
     }
@@ -26,24 +27,4 @@
     $result = mysqli_query($conn,$sql);
     $resultArray=mysqli_fetch_assoc($result);
     $noteToEdit=$resultArray['Note'];
-
-$updateForm=<<<EOT
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Add Record</title>
-    </head>
-    <body>
-        <div>
-            <h1>Update Note Here</h1>
-            <form action="processUpdatedNote.php" method="post">
-                <textarea required autofocus name="Note" maxlength="1000" style="width:500px;height:200px;">$noteToEdit</textarea>
-                <br>
-                <input type="submit">
-            </form>
-        </div>
-    </body>
-</html>
-EOT;
-    echo $updateForm;
 ?>
