@@ -28,7 +28,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("<p>Connection failed: " . mysqli_connect_error() . "</p>");
 }
-$sql = "SELECT * FROM Notes WHERE Username=\"$uname\"";
+$sql = "SELECT * FROM Notes WHERE Username=\"$uname\" ORDER BY TimeCreated DESC";
 $result = mysqli_query($conn,$sql);
 $row_cnt = $result->num_rows;
 
