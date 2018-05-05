@@ -1,3 +1,4 @@
+
 # TEAM MEMBERS
 Thomas Jurczyk, Vyacheslav Sidorov
 ### Description of Project
@@ -6,5 +7,7 @@ Our project utilizes mySQL, PHP, HTML and CSS to make a note-keeping application
 CREATE SCHEMA databasefinaldatabase;
 CREATE TABLE loginInfo(column1 VARCHAR(50));
 CREATE TABLE Notes(Username VARCHAR(5o),TimeCreated DATETIME,Note VARCHAR(1000));
+### ERD Diagram
+![alt text](/Entity Relationship Diagram.png "Logo Title Text 1")
 
 
